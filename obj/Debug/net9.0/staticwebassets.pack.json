@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\js\\user.js",
+      "PackagePath": "staticwebassets\\js\\user.js"
+    },
+    {
+      "Id": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\user.html",
+      "PackagePath": "staticwebassets\\user.html"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.MyBakery.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.MyBakery.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.MyBakery.props",
+      "PackagePath": "build\\MyBakery.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.MyBakery.props",
+      "PackagePath": "buildMultiTargeting\\MyBakery.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.MyBakery.props",
+      "PackagePath": "buildTransitive\\MyBakery.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "dgSpecHash": "AxO79TnF9+M=",
+  "success": true,
+  "projectFilePath": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\MyBakery.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\huser\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.0\\microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "MyBakery depends on Microsoft.AspNetCore.OpenApi (>= 9.0.101) but Microsoft.AspNetCore.OpenApi 9.0.101 was not found. Microsoft.AspNetCore.OpenApi 10.0.0 was resolved instead.",
+      "projectPath": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\MyBakery.csproj",
+      "warningLevel": 1,
+      "filePath": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\MyBakery.csproj",
+      "libraryId": "Microsoft.AspNetCore.OpenApi",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
+}

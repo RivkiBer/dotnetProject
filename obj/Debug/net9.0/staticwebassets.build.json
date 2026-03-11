@@ -1,0 +1,1722 @@
+{
+  "Version": 1,
+  "Hash": "AholjLDKK8AtQJTWnwPHVbUNG7kbi90AIdwKvoJH1kU=",
+  "Source": "MyBakery",
+  "BasePath": "_content/MyBakery",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MyBakery\\wwwroot",
+      "Source": "MyBakery",
+      "ContentRoot": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\",
+      "BasePath": "_content/MyBakery",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\2457q9r49x-zoxlk5se5i.gz",
+      "SourceId": "MyBakery",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/MyBakery",
+      "RelativePath": "css/site#[.{fingerprint=zoxlk5se5i}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\css\\site.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "6iwh808co5",
+      "Integrity": "MrkGjfJbtiTQKCqzljej72Njbw6vWKiTb/Xs3LUMWco=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\9a73kr6ph4-0d4zs3y8nt.gz",
+      "SourceId": "MyBakery",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/MyBakery",
+      "RelativePath": "user#[.{fingerprint=0d4zs3y8nt}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\user.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "zsgifk7r8q",
+      "Integrity": "bWsD4EOVORPvYRxMJB7bx5+9zwI1isG7PFPHkHn2kGo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\user.html"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\ilizz38icu-mr6emvyd9m.gz",
+      "SourceId": "MyBakery",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/MyBakery",
+      "RelativePath": "index#[.{fingerprint=mr6emvyd9m}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\index.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "57s78g7zua",
+      "Integrity": "f/1AUkFrgyng3zj1bHeG72idCDtudHUhHDji+dyqvyU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\index.html"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\knwg0yefb6-1mlsvv9zft.gz",
+      "SourceId": "MyBakery",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/MyBakery",
+      "RelativePath": "js/user#[.{fingerprint=1mlsvv9zft}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\js\\user.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "uma1w7oalw",
+      "Integrity": "6nfz8qYEjGKrLX5XEzSKThBCDdnWcCp4QDQmQ4QC7ig=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\js\\user.js"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\sdfh4mjqk9-1qdcf9csaf.gz",
+      "SourceId": "MyBakery",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/MyBakery",
+      "RelativePath": "js/site#[.{fingerprint=1qdcf9csaf}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\js\\site.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "w32038umy3",
+      "Integrity": "VJIS9e7OWgboCEeZu4SGnzgbmRBucJw3inPNU3Zwc+s=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\css\\site.css",
+      "SourceId": "MyBakery",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\",
+      "BasePath": "_content/MyBakery",
+      "RelativePath": "css/site#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zoxlk5se5i",
+      "Integrity": "06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\index.html",
+      "SourceId": "MyBakery",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\",
+      "BasePath": "_content/MyBakery",
+      "RelativePath": "index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mr6emvyd9m",
+      "Integrity": "wisSxEILg4VYv0898cgwisTCBY0ir8NIY4Qf8oTm3fs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\js\\site.js",
+      "SourceId": "MyBakery",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\",
+      "BasePath": "_content/MyBakery",
+      "RelativePath": "js/site#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1qdcf9csaf",
+      "Integrity": "ecNS9WT15HZiqIuBHZgSBnxkygNbDrwS/YdrByPU0Ck=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\js\\user.js",
+      "SourceId": "MyBakery",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\",
+      "BasePath": "_content/MyBakery",
+      "RelativePath": "js/user#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1mlsvv9zft",
+      "Integrity": "aQemdwUQgZ0jh9TxCVgq4Gqj54VTmRvWS7Qm4TMjQOY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\user.js"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\user.html",
+      "SourceId": "MyBakery",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\",
+      "BasePath": "_content/MyBakery",
+      "RelativePath": "user#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0d4zs3y8nt",
+      "Integrity": "LFecD041Ff+ZveVOEJYYraLEnEPmspvk1GbmXvobgHg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\user.html"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/site.css",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\2457q9r49x-zoxlk5se5i.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.004651162791"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "214"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MrkGjfJbtiTQKCqzljej72Njbw6vWKiTb/Xs3LUMWco=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Oct 2021 22:58:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "332"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Oct 2021 22:58:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css.gz",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\2457q9r49x-zoxlk5se5i.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "214"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MrkGjfJbtiTQKCqzljej72Njbw6vWKiTb/Xs3LUMWco=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Oct 2021 22:58:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MrkGjfJbtiTQKCqzljej72Njbw6vWKiTb/Xs3LUMWco="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.zoxlk5se5i.css",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\2457q9r49x-zoxlk5se5i.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.004651162791"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "214"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MrkGjfJbtiTQKCqzljej72Njbw6vWKiTb/Xs3LUMWco=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Oct 2021 22:58:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zoxlk5se5i"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.zoxlk5se5i.css",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "332"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Oct 2021 22:58:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zoxlk5se5i"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.zoxlk5se5i.css.gz",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\2457q9r49x-zoxlk5se5i.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "214"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MrkGjfJbtiTQKCqzljej72Njbw6vWKiTb/Xs3LUMWco=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Oct 2021 22:58:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zoxlk5se5i"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MrkGjfJbtiTQKCqzljej72Njbw6vWKiTb/Xs3LUMWco="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\ilizz38icu-mr6emvyd9m.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001652892562"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "604"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"f/1AUkFrgyng3zj1bHeG72idCDtudHUhHDji+dyqvyU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:20:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"wisSxEILg4VYv0898cgwisTCBY0ir8NIY4Qf8oTm3fs=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wisSxEILg4VYv0898cgwisTCBY0ir8NIY4Qf8oTm3fs="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1291"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wisSxEILg4VYv0898cgwisTCBY0ir8NIY4Qf8oTm3fs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:20:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wisSxEILg4VYv0898cgwisTCBY0ir8NIY4Qf8oTm3fs="
+        }
+      ]
+    },
+    {
+      "Route": "index.html.gz",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\ilizz38icu-mr6emvyd9m.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "604"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"f/1AUkFrgyng3zj1bHeG72idCDtudHUhHDji+dyqvyU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:20:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-f/1AUkFrgyng3zj1bHeG72idCDtudHUhHDji+dyqvyU="
+        }
+      ]
+    },
+    {
+      "Route": "index.mr6emvyd9m.html",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\ilizz38icu-mr6emvyd9m.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001652892562"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "604"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"f/1AUkFrgyng3zj1bHeG72idCDtudHUhHDji+dyqvyU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:20:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"wisSxEILg4VYv0898cgwisTCBY0ir8NIY4Qf8oTm3fs=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mr6emvyd9m"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wisSxEILg4VYv0898cgwisTCBY0ir8NIY4Qf8oTm3fs="
+        }
+      ]
+    },
+    {
+      "Route": "index.mr6emvyd9m.html",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1291"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wisSxEILg4VYv0898cgwisTCBY0ir8NIY4Qf8oTm3fs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:20:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mr6emvyd9m"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wisSxEILg4VYv0898cgwisTCBY0ir8NIY4Qf8oTm3fs="
+        }
+      ]
+    },
+    {
+      "Route": "index.mr6emvyd9m.html.gz",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\ilizz38icu-mr6emvyd9m.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "604"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"f/1AUkFrgyng3zj1bHeG72idCDtudHUhHDji+dyqvyU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:20:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mr6emvyd9m"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-f/1AUkFrgyng3zj1bHeG72idCDtudHUhHDji+dyqvyU="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.1qdcf9csaf.js",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\sdfh4mjqk9-1qdcf9csaf.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000968992248"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1031"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VJIS9e7OWgboCEeZu4SGnzgbmRBucJw3inPNU3Zwc+s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:27:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ecNS9WT15HZiqIuBHZgSBnxkygNbDrwS/YdrByPU0Ck=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1qdcf9csaf"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ecNS9WT15HZiqIuBHZgSBnxkygNbDrwS/YdrByPU0Ck="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.1qdcf9csaf.js",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3658"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ecNS9WT15HZiqIuBHZgSBnxkygNbDrwS/YdrByPU0Ck=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:27:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1qdcf9csaf"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ecNS9WT15HZiqIuBHZgSBnxkygNbDrwS/YdrByPU0Ck="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.1qdcf9csaf.js.gz",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\sdfh4mjqk9-1qdcf9csaf.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1031"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VJIS9e7OWgboCEeZu4SGnzgbmRBucJw3inPNU3Zwc+s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:27:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1qdcf9csaf"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-VJIS9e7OWgboCEeZu4SGnzgbmRBucJw3inPNU3Zwc+s="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\sdfh4mjqk9-1qdcf9csaf.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000968992248"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1031"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VJIS9e7OWgboCEeZu4SGnzgbmRBucJw3inPNU3Zwc+s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:27:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ecNS9WT15HZiqIuBHZgSBnxkygNbDrwS/YdrByPU0Ck=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ecNS9WT15HZiqIuBHZgSBnxkygNbDrwS/YdrByPU0Ck="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3658"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ecNS9WT15HZiqIuBHZgSBnxkygNbDrwS/YdrByPU0Ck=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:27:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ecNS9WT15HZiqIuBHZgSBnxkygNbDrwS/YdrByPU0Ck="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js.gz",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\sdfh4mjqk9-1qdcf9csaf.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1031"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VJIS9e7OWgboCEeZu4SGnzgbmRBucJw3inPNU3Zwc+s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:27:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-VJIS9e7OWgboCEeZu4SGnzgbmRBucJw3inPNU3Zwc+s="
+        }
+      ]
+    },
+    {
+      "Route": "js/user.1mlsvv9zft.js",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\knwg0yefb6-1mlsvv9zft.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000963391137"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1037"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6nfz8qYEjGKrLX5XEzSKThBCDdnWcCp4QDQmQ4QC7ig=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:14:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"aQemdwUQgZ0jh9TxCVgq4Gqj54VTmRvWS7Qm4TMjQOY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1mlsvv9zft"
+        },
+        {
+          "Name": "label",
+          "Value": "js/user.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-aQemdwUQgZ0jh9TxCVgq4Gqj54VTmRvWS7Qm4TMjQOY="
+        }
+      ]
+    },
+    {
+      "Route": "js/user.1mlsvv9zft.js",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\js\\user.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3668"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aQemdwUQgZ0jh9TxCVgq4Gqj54VTmRvWS7Qm4TMjQOY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:14:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1mlsvv9zft"
+        },
+        {
+          "Name": "label",
+          "Value": "js/user.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-aQemdwUQgZ0jh9TxCVgq4Gqj54VTmRvWS7Qm4TMjQOY="
+        }
+      ]
+    },
+    {
+      "Route": "js/user.1mlsvv9zft.js.gz",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\knwg0yefb6-1mlsvv9zft.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1037"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6nfz8qYEjGKrLX5XEzSKThBCDdnWcCp4QDQmQ4QC7ig=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:14:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1mlsvv9zft"
+        },
+        {
+          "Name": "label",
+          "Value": "js/user.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-6nfz8qYEjGKrLX5XEzSKThBCDdnWcCp4QDQmQ4QC7ig="
+        }
+      ]
+    },
+    {
+      "Route": "js/user.js",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\knwg0yefb6-1mlsvv9zft.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000963391137"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1037"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6nfz8qYEjGKrLX5XEzSKThBCDdnWcCp4QDQmQ4QC7ig=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:14:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"aQemdwUQgZ0jh9TxCVgq4Gqj54VTmRvWS7Qm4TMjQOY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-aQemdwUQgZ0jh9TxCVgq4Gqj54VTmRvWS7Qm4TMjQOY="
+        }
+      ]
+    },
+    {
+      "Route": "js/user.js",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\js\\user.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3668"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aQemdwUQgZ0jh9TxCVgq4Gqj54VTmRvWS7Qm4TMjQOY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:14:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-aQemdwUQgZ0jh9TxCVgq4Gqj54VTmRvWS7Qm4TMjQOY="
+        }
+      ]
+    },
+    {
+      "Route": "js/user.js.gz",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\knwg0yefb6-1mlsvv9zft.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1037"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6nfz8qYEjGKrLX5XEzSKThBCDdnWcCp4QDQmQ4QC7ig=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:14:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-6nfz8qYEjGKrLX5XEzSKThBCDdnWcCp4QDQmQ4QC7ig="
+        }
+      ]
+    },
+    {
+      "Route": "user.0d4zs3y8nt.html",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\9a73kr6ph4-0d4zs3y8nt.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001697792869"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "588"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bWsD4EOVORPvYRxMJB7bx5+9zwI1isG7PFPHkHn2kGo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 16:45:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"LFecD041Ff+ZveVOEJYYraLEnEPmspvk1GbmXvobgHg=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0d4zs3y8nt"
+        },
+        {
+          "Name": "label",
+          "Value": "user.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-LFecD041Ff+ZveVOEJYYraLEnEPmspvk1GbmXvobgHg="
+        }
+      ]
+    },
+    {
+      "Route": "user.0d4zs3y8nt.html",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\user.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1272"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LFecD041Ff+ZveVOEJYYraLEnEPmspvk1GbmXvobgHg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 16:45:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0d4zs3y8nt"
+        },
+        {
+          "Name": "label",
+          "Value": "user.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-LFecD041Ff+ZveVOEJYYraLEnEPmspvk1GbmXvobgHg="
+        }
+      ]
+    },
+    {
+      "Route": "user.0d4zs3y8nt.html.gz",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\9a73kr6ph4-0d4zs3y8nt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "588"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bWsD4EOVORPvYRxMJB7bx5+9zwI1isG7PFPHkHn2kGo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 16:45:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0d4zs3y8nt"
+        },
+        {
+          "Name": "label",
+          "Value": "user.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bWsD4EOVORPvYRxMJB7bx5+9zwI1isG7PFPHkHn2kGo="
+        }
+      ]
+    },
+    {
+      "Route": "user.html",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\9a73kr6ph4-0d4zs3y8nt.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001697792869"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "588"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bWsD4EOVORPvYRxMJB7bx5+9zwI1isG7PFPHkHn2kGo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 16:45:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"LFecD041Ff+ZveVOEJYYraLEnEPmspvk1GbmXvobgHg=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-LFecD041Ff+ZveVOEJYYraLEnEPmspvk1GbmXvobgHg="
+        }
+      ]
+    },
+    {
+      "Route": "user.html",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\wwwroot\\user.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1272"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LFecD041Ff+ZveVOEJYYraLEnEPmspvk1GbmXvobgHg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 16:45:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-LFecD041Ff+ZveVOEJYYraLEnEPmspvk1GbmXvobgHg="
+        }
+      ]
+    },
+    {
+      "Route": "user.html.gz",
+      "AssetFile": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\Debug\\net9.0\\compressed\\9a73kr6ph4-0d4zs3y8nt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "588"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bWsD4EOVORPvYRxMJB7bx5+9zwI1isG7PFPHkHn2kGo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 16:45:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bWsD4EOVORPvYRxMJB7bx5+9zwI1isG7PFPHkHn2kGo="
+        }
+      ]
+    }
+  ]
+}
