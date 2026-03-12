@@ -15,10 +15,10 @@ public class BakeryService : IBakeryService
     public BakeryService()
     {
         this.list = new List<Pastry>{
-             new Pastry { Id = 1, Name = "",isMilky=true},
-             new Pastry { Id = 2, Name = ""},
-             new Pastry { Id = 3, Name = ""},
-             new Pastry { Id = 4, Name = "",isMilky=false}
+             new Pastry { Id = 1, Name = "Croissant",isMilky=true},
+             new Pastry { Id = 2, Name = "Muffin",isMilky=false},
+             new Pastry { Id = 3, Name = "Donut",isMilky=false},
+             new Pastry { Id = 4, Name = "Cake",isMilky=false}
         };
     }
     private Pastry find(int id)

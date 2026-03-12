@@ -1,4 +1,4 @@
-const uri = '/index';
+const uri = '/Bakery';
 let Pastrys = [];
 
 function getItems() {
@@ -78,13 +78,13 @@ function closeInput() {
 }
 
 function _displayCount(itemCount) {
-    const name = (itemCount === 1) ? 'Pastrys' : 'Pastrys kinds';
+    const name = (itemCount === 1) ? 'Pastry' : 'Pastries';
 
     document.getElementById('counter').innerText = `${itemCount} ${name}`;
 }
 
 function _displayItems(data) {
-    const tBody = document.getElementById('Pastrys');
+    const tBody = document.getElementById('Pastry');
     tBody.innerHTML = '';
 
     _displayCount(data.length);

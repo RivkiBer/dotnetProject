@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\MyBakery.csproj": {}
+    "C:\\Users\\PC\\Desktop\\תכנות\\.net\\dotnetProject\\MyBakery.csproj": {}
   },
   "projects": {
-    "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\MyBakery.csproj": {
+    "C:\\Users\\PC\\Desktop\\תכנות\\.net\\dotnetProject\\MyBakery.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\MyBakery.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Desktop\\תכנות\\.net\\dotnetProject\\MyBakery.csproj",
         "projectName": "MyBakery",
-        "projectPath": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\MyBakery.csproj",
-        "packagesPath": "C:\\Users\\huser\\.nuget\\packages\\",
-        "outputPath": "Z:\\יד תשפו\\ברנפלד רבקה\\זילברברג\\MyBakery\\obj\\",
+        "projectPath": "C:\\Users\\PC\\Desktop\\תכנות\\.net\\dotnetProject\\MyBakery.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Desktop\\תכנות\\.net\\dotnetProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\huser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,7 +25,7 @@
           "net9.0"
         ],
         "sources": {
-          "c:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -52,7 +52,7 @@
           "dependencies": {
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[9.0.101, )"
+              "version": "[9.0.0, )"
             }
           },
           "imports": [
@@ -74,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
