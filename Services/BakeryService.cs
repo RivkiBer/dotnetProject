@@ -3,6 +3,11 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using BakeryNamespace.Models;
 using BakeryServices.Interface;
+using System.IO;
+using System;
+using System.Net;
+using System.Text.Json;
+using Microsoft.AspNetCore.Hosting;
 
 namespace NamespaceBakery.Services;
 
@@ -11,15 +16,28 @@ public class BakeryService : IBakeryService
 
     private List<Pastry> list;
 
+    private string filePath;
 
-    public BakeryService()
+    public BakeryService(IWebHostEnvironment webHost)
     {
-        this.list = new List<Pastry>{
-             new Pastry { Id = 1, Name = "Croissant",isMilky=true},
-             new Pastry { Id = 2, Name = "Muffin",isMilky=false},
-             new Pastry { Id = 3, Name = "Donut",isMilky=false},
-             new Pastry { Id = 4, Name = "Cake",isMilky=false}
-        };
+        this.list = new List<Pastry>();
+
+        this.filePath = Path.Combine(webHost.ContentRootPath, "Data", "Pastries.json");
+        using (var jsonFile = File.OpenText(filePath))
+        {
+            var content = jsonFile.ReadToEnd();
+            list = JsonSerializer.Deserialize<List<Pastry>>(content,
+            new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+        }
+    }
+
+    private void saveToFile()
+    {
+        var text = JsonSerializer.Serialize(list);
+        File.WriteAllText(filePath, text);
     }
     private Pastry find(int id)
     {
@@ -31,7 +49,6 @@ public class BakeryService : IBakeryService
         return list;
     }
 
-
     public Pastry Get(int id) => find(id);
 
     public Pastry Create(Pastry newPastry)
@@ -39,6 +56,7 @@ public class BakeryService : IBakeryService
         var maxId = list.Max(m => m.Id);
         newPastry.Id = maxId + 1;
         list.Add(newPastry);
+        saveToFile();
         return newPastry;
     }
 
@@ -52,6 +70,7 @@ public class BakeryService : IBakeryService
 
         var index = list.IndexOf(pas);
         list[index] = newPastry;
+        saveToFile();
 
         return 2;
     }
@@ -62,6 +81,7 @@ public class BakeryService : IBakeryService
         if (pas == null)
             return false;
         list.Remove(pas);
+        saveToFile();
         return true;
     }
 }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="javascript:void(0);" onsubmit="login()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required><br>
+        <label for="pass">Password:</label>
+        <input type="password" id="pass" required><br>
+        <input type="submit" value="Login">
+    </form>
+    <p id="message"></p>
+    <script>
+        function login() {
+            const name = document.getElementById('name').value;
+            const pass = document.getElementById('pass').value;
+
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ Name: name, Pass: pass })
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    throw new Error('Invalid credentials');
+                }
+            })
+            .then(token => {
+                localStorage.setItem('token', token);
+                window.location.href = 'user.html';
+            })
+            .catch(error => {
+                document.getElementById('message').innerText = error.message;
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,8 +1,26 @@
 const uri = '/Bakery';
 let Pastrys = [];
+let token = localStorage.getItem('token');
+
+if (!token) {
+    window.location.href = 'login.html';
+} else {
+    getItems();
+}
+
+function getAuthHeaders() {
+    return { 'Authorization': `Bearer ${token}` };
+}
+
+function logout() {
+    localStorage.removeItem('token');
+    window.location.href = 'login.html';
+}
 
 function getItems() {
-    fetch(uri)
+    fetch(uri, {
+        headers: getAuthHeaders()
+    })
         .then(response => response.json())
         .then(data => _displayItems(data))
         .catch(error => console.error('Unable to get items.', error));
@@ -20,7 +38,8 @@ function addItem() {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                ...getAuthHeaders()
             },
             body: JSON.stringify(item)
         })
@@ -34,7 +53,8 @@ function addItem() {
 
 function deleteItem(id) {
     fetch(`${uri}/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: getAuthHeaders()
         })
         .then(() => getItems())
         .catch(error => console.error('Unable to delete item.', error));
@@ -61,7 +81,8 @@ function updateItem() {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                ...getAuthHeaders()
             },
             body: JSON.stringify(item)
         })

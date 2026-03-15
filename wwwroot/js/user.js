@@ -1,8 +1,21 @@
 const uri = '/user';
 let Users = [];
+let token = localStorage.getItem('token');
+
+if (!token) {
+    window.location.href = 'login.html';
+} else {
+    getItems();
+}
+
+function getAuthHeaders() {
+    return { 'Authorization': `Bearer ${token}` };
+}
 
 function getItems() {
-    fetch(uri)
+    fetch(uri, {
+        headers: getAuthHeaders()
+    })
         .then(response => response.json())
         .then(data => _displayItems(data))
         .catch(error => console.error('Unable to get items.', error));
@@ -10,17 +23,21 @@ function getItems() {
 
 function addItem() {
     const addNameTextbox = document.getElementById('add-name');
+    const addPassTextbox = document.getElementById('add-pass');
+    const addTypeSelect = document.getElementById('add-type');
 
     const item = {
-       isMilky: false,
-        name: addNameTextbox.value.trim()
+        Name: addNameTextbox.value.trim(),
+        Pass: addPassTextbox.value.trim(),
+        Type: addTypeSelect.value
     };
 
     fetch(uri, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                ...getAuthHeaders()
             },
             body: JSON.stringify(item)
         })
@@ -28,13 +45,15 @@ function addItem() {
         .then(() => {
             getItems();
             addNameTextbox.value = '';
+            addPassTextbox.value = '';
         })
         .catch(error => console.error('Unable to add item.', error));
 }
 
 function deleteItem(id) {
     fetch(`${uri}/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: getAuthHeaders()
         })
         .then(() => getItems())
         .catch(error => console.error('Unable to delete item.', error));
@@ -43,25 +62,28 @@ function deleteItem(id) {
 function displayEditForm(id) {
     const item = Users.find(item => item.id === id);
 
-    document.getElementById('edit-LastName').value = item.name;
+    document.getElementById('edit-name').value = item.name;
+    document.getElementById('edit-pass').value = item.pass;
+    document.getElementById('edit-type').value = item.type;
     document.getElementById('edit-id').value = item.id;
-    document.getElementById('edit-FirstName').checked = item.FirstName;
     document.getElementById('editForm').style.display = 'block';
 }
 
 function updateItem() {
     const itemId = document.getElementById('edit-id').value;
     const item = {
-        id: parseInt(itemId, 10),
-        FirstName: document.getElementById('edit-FirstName').checked,
-        LastName: document.getElementById('edit-LastName').value.trim()
+        Id: parseInt(itemId, 10),
+        Name: document.getElementById('edit-name').value.trim(),
+        Pass: document.getElementById('edit-pass').value.trim(),
+        Type: document.getElementById('edit-type').value
     };
 
     fetch(`${uri}/${itemId}`, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                ...getAuthHeaders()
             },
             body: JSON.stringify(item)
         })
@@ -77,10 +99,9 @@ function closeInput() {
     document.getElementById('editForm').style.display = 'none';
 }
 
-function _displayCount(itemCount) {
-    const name = (itemCount === 1) ? 'User' : 'User kinds';
-
-    document.getElementById('counter').innerText = `${itemCount} ${name}`;
+function logout() {
+    localStorage.removeItem('token');
+    window.location.href = 'login.html';
 }
 
 function _displayItems(data) {
@@ -92,10 +113,11 @@ function _displayItems(data) {
     const button = document.createElement('button');
 
     data.forEach(item => {
-        let isGlutenFreeCheckbox = document.createElement('input');
-        isGlutenFreeCheckbox.type = 'checkbox';
-        isGlutenFreeCheckbox.disabled = true;
-        isGlutenFreeCheckbox.checked = item.FirstName;
+        let typeCell = document.createElement('td');
+        typeCell.innerText = item.type;
+
+        let nameCell = document.createElement('td');
+        nameCell.innerText = item.name;
 
         let editButton = button.cloneNode(false);
         editButton.innerText = 'Edit';
@@ -105,21 +127,21 @@ function _displayItems(data) {
         deleteButton.innerText = 'Delete';
         deleteButton.setAttribute('onclick', `deleteItem(${item.id})`);
 
-        let tr = tBody.insertRow();
+        let row = document.createElement('tr');
+        row.appendChild(typeCell);
+        row.appendChild(nameCell);
+        row.appendChild(editButton);
+        row.appendChild(deleteButton);
 
-        let td1 = tr.insertCell(0);
-        td1.appendChild(isMilkyCheckbox);
-
-        let td2 = tr.insertCell(1);
-        let textNode = document.createTextNode(item.name);
-        td2.appendChild(textNode);
-
-        let td3 = tr.insertCell(2);
-        td3.appendChild(editButton);
-
-        let td4 = tr.insertCell(3);
-        td4.appendChild(deleteButton);
+        tBody.appendChild(row);
     });
 
     Users = data;
+}
+
+// Check if already logged in
+if (token) {
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('userSection').style.display = 'block';
+    getItems();
 }

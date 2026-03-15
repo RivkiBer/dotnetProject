@@ -2,6 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Cryptography.X509Certificates;
 using UserNamespace.Models;
 using UserService.interfaces;
+using System.IO;
+using System;
+using System.Net;
+using System.Text.Json;
+using Microsoft.AspNetCore.Hosting;
 
 namespace UserNamespace.Services;
 
@@ -10,14 +15,28 @@ namespace UserNamespace.Services;
       
      private List<User> list;
 
-    public UserService()
+    private string filePath;
+
+    public UserService(IWebHostEnvironment webHost)
     {
-        this.list = new List<User>{
-             new User { Id = 1, Name = "vanilla",isGloutenFree=true},
-             new User { Id = 2, Name = "strawberry",isGloutenFree=true},
-             new User { Id = 3, Name = "chocolate",isGloutenFree=true},
-             new User { Id = 4, Name = "Pistachio",isGloutenFree=false} 
-        };
+        this.list = new List<User>();
+
+        this.filePath = Path.Combine(webHost.ContentRootPath, "Data", "Users.json");
+        using (var jsonFile = File.OpenText(filePath))
+        {
+            var content = jsonFile.ReadToEnd();
+            list = JsonSerializer.Deserialize<List<User>>(content,
+            new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+        }
+    }
+
+    private void saveToFile()
+    {
+        var text = JsonSerializer.Serialize(list);
+        File.WriteAllText(filePath, text);
     }
    
    
@@ -41,6 +60,7 @@ namespace UserNamespace.Services;
         var maxId = list.Max(p => p.Id);
         newUser.Id = maxId + 1;
         list.Add(newUser);
+        saveToFile();
             return newUser;
     }
 
@@ -55,6 +75,7 @@ namespace UserNamespace.Services;
 
         var index = list.IndexOf(Ice);
         list[index] = newUser;
+        saveToFile();
 
         return 3;
     }
@@ -66,19 +87,15 @@ namespace UserNamespace.Services;
         if(u==null)
             return false;
         list.Remove(u);
+        saveToFile();
         return true;
     }
 }
-    public static class BakeryExtension{
-      public static void AddUserService(this IServiceCollection services)
-        {
-            services.AddSingleton<IUserService, UserService>();
-            //services.AddScope<IOrderManager, OrderManager>();
-            //services.AddTransient<IOrderSender, OrderSenderHttp>();            
-        }
-
-
-
-
+public static class UserServiceExtension
+{
+    public static void AddUserService(this IServiceCollection services)
+    {
+        services.AddSingleton<IUserService, UserService>();
+    }
 }
 

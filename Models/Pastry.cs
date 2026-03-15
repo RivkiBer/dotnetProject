@@ -5,5 +5,6 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public bool isMilky { get; set; }
+        public int UserId { get; set; }
     }
 }
