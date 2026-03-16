@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "JuDioolOgLg=",
+  "dgSpecHash": "XehSSsLoE3g=",
   "success": true,
   "projectFilePath": "z:\\יד תשפו\\שפירא בת שבע\\זילברבג\\project MyBackery\\dotnetProject\\MyBakery.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\huser\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512",
     "C:\\Users\\huser\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.0\\microsoft.aspnetcore.authentication.jwtbearer.9.0.0.nupkg.sha512",
     "C:\\Users\\huser\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.0\\microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",
     "C:\\Users\\huser\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

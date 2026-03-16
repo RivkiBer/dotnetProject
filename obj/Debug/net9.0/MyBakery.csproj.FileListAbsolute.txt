@@ -140,3 +140,4 @@ z:\יד תשפו\שפירא בת שבע\זילברבג\project MyBackery\dotnetP
 z:\יד תשפו\שפירא בת שבע\זילברבג\project MyBackery\dotnetProject\obj\Debug\net9.0\MyBakery.pdb
 z:\יד תשפו\שפירא בת שבע\זילברבג\project MyBackery\dotnetProject\obj\Debug\net9.0\MyBakery.genruntimeconfig.cache
 z:\יד תשפו\שפירא בת שבע\זילברבג\project MyBackery\dotnetProject\obj\Debug\net9.0\ref\MyBakery.dll
+z:\יד תשפו\שפירא בת שבע\זילברבג\project MyBackery\dotnetProject\bin\Debug\net9.0\BCrypt.Net-Next.dll

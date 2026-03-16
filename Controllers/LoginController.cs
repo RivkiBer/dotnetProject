@@ -4,6 +4,8 @@ using UserService.interfaces;
 using System.Security.Claims;
 using UserNamespace.Services;
 using UserNamespace.Models;
+using System.Linq;
+using BCrypt.Net;
 
 namespace UserNamespace.Controllers
 {
@@ -22,18 +24,20 @@ namespace UserNamespace.Controllers
         [HttpPost]
         public ActionResult<string> Login([FromBody] LoginRequest req)
         {
-            var user = service
-                .Get()
-                .FirstOrDefault(u => u.Name == req.Name && u.Pass == req.Pass);
+            // get raw user including hashed password
+            var user = service.GetRawByName(req.Name);
 
             if (user == null)
+                return Unauthorized("Wrong userId / password");
+
+            // verify hashed password
+            if (!BCrypt.Net.BCrypt.Verify(req.Pass, user.Pass))
                 return Unauthorized("Wrong userId / password");
 
             var claims = new List<Claim>
             {
                 new Claim("userid", user.Id.ToString()),
                 new Claim("username", user.Name),
-                new Claim("password", user.Pass),
                 new Claim("type", user.Type)
             };
 

@@ -15,7 +15,10 @@ namespace UserService.interfaces;
      int Update(int id, User newUser);
    
      bool Delete(int id);
-    // int Update(int id, User newUser);
+
+        // Return a user including the stored password hash for authentication
+        User GetRawByName(string name);
+    }
 }
 
 

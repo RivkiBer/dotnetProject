@@ -7,7 +7,8 @@ using System;
 using System.Net;
 using System.Text.Json;
 using Microsoft.AspNetCore.Hosting;
-
+using System.Linq;
+using BCrypt.Net;
 namespace UserNamespace.Services;
 
     public  class UserService : IUserService
@@ -41,37 +42,63 @@ namespace UserNamespace.Services;
    
    
 
-    public List<User> Get()
-    {
-        return list;
+   public List<User> Get()
+{
+        // return copies without the Pass field to avoid exposing hashes
+        return list.Select(u => new User { Id = u.Id, Name = u.Name, Type = u.Type, Pass = null }).ToList();
     }
 
     private User find(int id)
     {
-        
         return list.FirstOrDefault(p => p.Id == id);
 
     }
 
-    public User Get(int id) => find(id);
+    public User Get(int id)
+    {
+        var u = find(id);
+        if (u == null) return null;
+        return new User { Id = u.Id, Name = u.Name, Type = u.Type, Pass = null };
+    }
+
+    // return raw user (including pass hash) for internal auth use
+    public User GetRawByName(string name)
+    {
+        return list.FirstOrDefault(u => u.Name == name);
+    }
 
     public User Create(User newUser)
     {
-        var maxId = list.Max(p => p.Id);
+        var maxId = list.Any() ? list.Max(p => p.Id) : 0;
         newUser.Id = maxId + 1;
+
+        if (!string.IsNullOrWhiteSpace(newUser.Pass))
+        {
+            newUser.Pass = BCrypt.Net.BCrypt.HashPassword(newUser.Pass);
+        }
+
         list.Add(newUser);
         saveToFile();
-            return newUser;
+        return new User { Id = newUser.Id, Name = newUser.Name, Type = newUser.Type, Pass = null };
     }
 
     public int Update(int id, User newUser)
     {
         var Ice = find(id);
-        if(Ice == null)
-          return 1;
+        if (Ice == null)
+            return 1;
 
-        if(Ice.Id != newUser.Id)
-           return 2;
+        if (Ice.Id != newUser.Id)
+            return 2;
+
+        if (!string.IsNullOrWhiteSpace(newUser.Pass))
+        {
+            newUser.Pass = BCrypt.Net.BCrypt.HashPassword(newUser.Pass);
+        }
+        else
+        {
+            newUser.Pass = Ice.Pass;
+        }
 
         var index = list.IndexOf(Ice);
         list[index] = newUser;
