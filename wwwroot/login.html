@@ -1,24 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>התחברות - Bakery</title>
     <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-    <h1>Login</h1>
-    <form action="javascript:void(0);" onsubmit="login()">
-        <label for="name">Name:</label>
-        <input type="text" id="name" required><br>
-        <label for="pass">Password:</label>
-        <input type="password" id="pass" required><br>
-        <input type="submit" value="Login">
-    </form>
-    <p id="message"></p>
+    <div class="container">
+        <header>
+            <h1>🥐 Bakery Management</h1>
+            <p>התחברות למערכת</p>
+        </header>
+        
+        <div class="content">
+            <div class="section">
+                <form action="javascript:void(0);" onsubmit="login()">
+                    <div style="width: 100%;">
+                        <label for="name" style="display: block; margin-bottom: 8px; font-weight: 600; color: #333;">שם משתמש:</label>
+                        <input type="text" id="name" placeholder="הכנס שם משתמש" required>
+                    </div>
+                    <div style="width: 100%;">
+                        <label for="pass" style="display: block; margin-bottom: 8px; font-weight: 600; color: #333;">סיסמה:</label>
+                        <input type="password" id="pass" placeholder="הכנס סיסמה" required>
+                    </div>
+                    <input type="submit" value="התחברות" style="width: 100%;">
+                </form>
+                <p id="message" style="margin-top: 15px; min-height: 20px;"></p>
+            </div>
+        </div>
+    </div>
+
     <script>
         function login() {
             const name = document.getElementById('name').value;
             const pass = document.getElementById('pass').value;
+            const messageEl = document.getElementById('message');
+
+            messageEl.textContent = 'מחייחך...';
+            messageEl.className = '';
 
             fetch('/login', {
                 method: 'POST',
@@ -31,17 +51,29 @@
                 if (response.ok) {
                     return response.text();
                 } else {
-                    throw new Error('Invalid credentials');
+                    throw new Error('שם משתמש או סיסמה שגויים');
                 }
             })
             .then(token => {
                 localStorage.setItem('token', token);
-                window.location.href = 'user.html';
+                messageEl.textContent = 'התחברות הצליחה! מעביר אותך...';
+                messageEl.className = 'success';
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
             })
             .catch(error => {
-                document.getElementById('message').innerText = error.message;
+                messageEl.textContent = '❌ ' + error.message;
+                messageEl.className = 'error';
             });
         }
+
+        // בדיקה אם כבר מחובר
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('token')) {
+                window.location.href = 'index.html';
+            }
+        });
     </script>
 </body>
 </html>

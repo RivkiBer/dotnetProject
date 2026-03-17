@@ -1,11 +1,101 @@
 const uri = '/Bakery';
 let Pastrys = [];
 let token = localStorage.getItem('token');
+let connection; // Signaction
+let currentUserData = {}; // Store current user info
 
 if (!token) {
     window.location.href = 'login.html';
 } else {
+    // Parse user data from token
+    try {
+        const tokenParts = token.split('.');
+        const decodedPayload = atob(tokenParts[1]);
+        currentUserData = JSON.parse(decodedPayload);
+    } catch (e) {
+        console.error('Error parsing token:', e);
+    }
+    
+    initializeSignalR();
     getItems();
+}
+
+// ==================== הודעות בזמן אמת ====================
+function showMessage(action, itemName, username, userType, isOwnAction) {
+    const container = document.getElementById('messagesContainer');
+    container.style.display = 'block';
+    
+    const actionEmoji = {
+        'add': '✅',
+        'update': '✏️',
+        'delete': '🗑️'
+    }[action] || action;
+    
+    const actionVerb = {
+        'add': 'הוסיף',
+        'update': 'עדכן',
+        'delete': 'מחק'
+    }[action] || action;
+    
+    let messageText = '';
+    let userLabel = '';
+    
+    // קבע טיימ של משתמש
+    if (userType === 'Admin') {
+        userLabel = ' 👨‍💼 (Admin)';
+    }
+    
+    if (isOwnAction) {
+        // המשתמש עצמו כמה עשה
+        messageText = `${actionEmoji} <strong>אתה</strong> ${actionVerb} את "${itemName}"`;
+    } else {
+        // משתמש אחר עשה משהו
+        messageText = `${actionEmoji} <strong>${username || 'משתמש'}</strong>${userLabel} ${actionVerb} את "${itemName}"`;
+    }
+    
+    const msgClass = `message-${action}`;
+    const msgHTML = `
+        <div class="message-item ${msgClass}">
+            <span>${messageText}</span>
+            <button class="message-close" onclick="this.parentElement.remove()">✕</button>
+        </div>
+    `;
+    
+    container.innerHTML += msgHTML;
+    
+    // הדמט ההודעה אחרי 5 שניות
+    setTimeout(() => {
+        const messages = container.querySelectorAll('.message-item');
+        if (messages.length > 0) {
+            messages[0].style.animation = 'slideUp 0.3s ease';
+            setTimeout(() => messages[0].remove(), 300);
+        }
+    }, 5000);
+}
+
+// ==================== SignalR ו-ריאל-טיים ====================
+function initializeSignalR() {
+    connection = new signalR.HubConnectionBuilder()
+        .withUrl('/itemsHub', { accessTokenFactory: () => token })
+        .withAutomaticReconnect()
+        .build();
+
+    connection.on('ReceiveItemUpdate', (message) => {
+        console.log('📡 עדכון בזמן אמת מתקבל:', message);
+        
+        // בדוק אם זו יוזר עצמאי או משתמש אחר
+        const isOwnAction = message.UserId === currentUserData.userid;
+        
+        // הצג ההודעה עם טיים משתמש
+        showMessage(message.Action, message.ItemName, message.Username, message.UserType, isOwnAction);
+        
+        // רענן את הטבלה
+        getItems();
+    });
+
+    connection.start()
+        .then(() => console.log('✅ חיבור SignalR הוקם בהצלחה'))
+        .catch(err => console.error('❌ שגיאה בהחיבור SignalR:', err));
 }
 
 function getAuthHeaders() {
@@ -34,6 +124,11 @@ function addItem() {
         name: addNameTextbox.value.trim()
     };
 
+    if (!item.name) {
+        alert('אנא הכנס שם המאפה');
+        return;
+    }
+
     fetch(uri, {
             method: 'POST',
             headers: {
@@ -43,21 +138,47 @@ function addItem() {
             },
             body: JSON.stringify(item)
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('שגיאה בהוספת המאפה');
+            }
+            return response.json();
+        })
         .then(() => {
+            // הצג הודעה מיידית
+            showMessage('add', item.name, currentUserData.username, currentUserData.type, true);
+            
             getItems();
             addNameTextbox.value = '';
         })
-        .catch(error => console.error('Unable to add item.', error));
+        .catch(error => {
+            console.error('Unable to add item.', error);
+            alert('❌ ' + error.message);
+        });
 }
 
 function deleteItem(id) {
+    // Get the item name before deleting
+    const item = Pastrys.find(item => item.id === id);
+    const itemName = item ? item.name : '';
+    
     fetch(`${uri}/${id}`, {
             method: 'DELETE',
             headers: getAuthHeaders()
         })
-        .then(() => getItems())
-        .catch(error => console.error('Unable to delete item.', error));
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('שגיאה במחיקת המאפה');
+            }
+            // הצג הודעה מיידית
+            showMessage('delete', itemName, currentUserData.username, currentUserData.type, true);
+            
+            return getItems();
+        })
+        .catch(error => {
+            console.error('Unable to delete item.', error);
+            alert('❌ ' + error.message);
+        });
 }
 
 function displayEditForm(id) {
@@ -77,6 +198,11 @@ function updateItem() {
         name: document.getElementById('edit-name').value.trim()
     };
 
+    if (!item.name) {
+        alert('אנא הכנס שם המאפה');
+        return;
+    }
+
     fetch(`${uri}/${itemId}`, {
             method: 'PUT',
             headers: {
@@ -86,8 +212,19 @@ function updateItem() {
             },
             body: JSON.stringify(item)
         })
-        .then(() => getItems())
-        .catch(error => console.error('Unable to update item.', error));
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('שגיאה בעדכון המאפה');
+            }
+            // Show message immediately
+            showMessage('update', item.name, currentUserData.username, true);
+            
+            return getItems();
+        })
+        .catch(error => {
+            console.error('Unable to update item.', error);
+            alert('❌ ' + error.message);
+        });
 
     closeInput();
 
@@ -99,9 +236,8 @@ function closeInput() {
 }
 
 function _displayCount(itemCount) {
-    const name = (itemCount === 1) ? 'Pastry' : 'Pastries';
-
-    document.getElementById('counter').innerText = `${itemCount} ${name}`;
+    const name = (itemCount === 1) ? 'מאפה' : 'מאפים';
+    document.getElementById('counter').innerText = `📊 סה"כ: ${itemCount} ${name}`;
 }
 
 function _displayItems(data) {
@@ -110,35 +246,40 @@ function _displayItems(data) {
 
     _displayCount(data.length);
 
-    const button = document.createElement('button');
-
     data.forEach(item => {
+        let tr = tBody.insertRow();
+
+        // עמודה 1: חלבי
+        let td1 = tr.insertCell(0);
         let isMilkyCheckbox = document.createElement('input');
         isMilkyCheckbox.type = 'checkbox';
         isMilkyCheckbox.disabled = true;
         isMilkyCheckbox.checked = item.isMilky;
-
-        let editButton = button.cloneNode(false);
-        editButton.innerText = 'Edit';
-        editButton.setAttribute('onclick', `displayEditForm(${item.id})`);
-
-        let deleteButton = button.cloneNode(false);
-        deleteButton.innerText = 'Delete';
-        deleteButton.setAttribute('onclick', `deleteItem(${item.id})`);
-
-        let tr = tBody.insertRow();
-
-        let td1 = tr.insertCell(0);
         td1.appendChild(isMilkyCheckbox);
+        td1.style.textAlign = 'center';
 
+        // עמודה 2: שם
         let td2 = tr.insertCell(1);
-        let textNode = document.createTextNode(item.name);
-        td2.appendChild(textNode);
+        td2.textContent = item.name;
 
+        // עמודה 3: עריכה
         let td3 = tr.insertCell(2);
+        let editButton = document.createElement('button');
+        editButton.className = 'btn-edit';
+        editButton.innerText = '✏️ עדכן';
+        editButton.onclick = () => displayEditForm(item.id);
         td3.appendChild(editButton);
 
+        // עמודה 4: מחיקה
         let td4 = tr.insertCell(3);
+        let deleteButton = document.createElement('button');
+        deleteButton.className = 'btn-delete';
+        deleteButton.innerText = '🗑️ מחק';
+        deleteButton.onclick = () => {
+            if (confirm('האם אתה בטוח שאתה רוצה למחוק את המאפה הזה?')) {
+                deleteItem(item.id);
+            }
+        };
         td4.appendChild(deleteButton);
     });
 

@@ -8,6 +8,8 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using UserService.interfaces;
 using UserNamespace.Models;
+using Microsoft.AspNetCore.SignalR;
+using BakeryApp.Hubs;
 
 namespace BakeryNamespace.Controllers;
 
@@ -18,11 +20,14 @@ public class BakeryController : ControllerBase
 {  
    IBakeryService services;
    User activeUser;
-    public BakeryController(IBakeryService Pastservices, IActiveUser activeUser)
+   IHubContext<ItemsHub> hubContext;
+
+    public BakeryController(IBakeryService Pastservices, IActiveUser activeUser, IHubContext<ItemsHub> hubContext)
     {
         this.services=Pastservices;
         this.activeUser = activeUser.ActiveUser
             ?? throw new System.InvalidOperationException("Active user is required");
+        this.hubContext = hubContext;
     }
 
     [HttpGet()]
@@ -43,16 +48,28 @@ public class BakeryController : ControllerBase
     }
 
     [HttpPost]
-    public ActionResult Create(Pastry newPastry)
+    public async Task<ActionResult> Create(Pastry newPastry)
     {
         newPastry.UserId = activeUser.Id;
         var postedPastry = services.Create(newPastry);
+        
+        // שידור התעדכנות לכל חיבורי המשתמש
+        await hubContext.Clients.User(activeUser.Id.ToString())
+            .SendAsync("ReceiveItemUpdate", new
+            {
+                Username = activeUser.Name,
+                UserId = activeUser.Id,
+                UserType = activeUser.Type,
+                Action = "add",
+                ItemName = postedPastry.Name,
+                Timestamp = DateTime.UtcNow
+            });
       
-       return CreatedAtAction(nameof(Create), new { id = postedPastry.Id });
+        return CreatedAtAction(nameof(Create), new { id = postedPastry.Id });
     }
 
     [HttpPut("{id}")]
-    public ActionResult Update(int id, Pastry newPastry)
+    public async Task<ActionResult> Update(int id, Pastry newPastry)
     {
         var existing = services.Get(id);
         if (existing == null || existing.UserId != activeUser.Id)
@@ -62,18 +79,28 @@ public class BakeryController : ControllerBase
         var ans= services.Update( id, newPastry);
       
         if(ans==0)
-          return NotFound();
+            return NotFound();
 
         if(ans==1)
-           return BadRequest();
+            return BadRequest();
 
-       
+        // שידור התעדכנות לכל חיבורי המשתמש
+        await hubContext.Clients.User(activeUser.Id.ToString())
+            .SendAsync("ReceiveItemUpdate", new
+            {
+                Username = activeUser.Name,
+                UserId = activeUser.Id,
+                UserType = activeUser.Type,
+                Action = "update",
+                ItemName = newPastry.Name,
+                Timestamp = DateTime.UtcNow
+            });
+
         return NoContent();
-
     }
 
     [HttpDelete("{id}")]
-    public ActionResult Delete(int id)
+    public async Task<ActionResult> Delete(int id)
     {
         var existing = services.Get(id);
         if (existing == null || existing.UserId != activeUser.Id)
@@ -83,8 +110,20 @@ public class BakeryController : ControllerBase
       
         if(ans==false)
             return NotFound();
-        return NoContent();
 
+        // שידור התעדכנות לכל חיבורי המשתמש
+        await hubContext.Clients.User(activeUser.Id.ToString())
+            .SendAsync("ReceiveItemUpdate", new
+            {
+                Username = activeUser.Name,
+                UserId = activeUser.Id,
+                UserType = activeUser.Type,
+                Action = "delete",
+                ItemName = existing.Name,
+                Timestamp = DateTime.UtcNow
+            });
+
+        return NoContent();
     }
 }
  

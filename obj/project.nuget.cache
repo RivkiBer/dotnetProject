@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SSBz0lEPS9o=",
+  "dgSpecHash": "CuLVVs78Bhk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC\\Desktop\\תכנות\\.net\\dotnetProject\\MyBakery.csproj",
+  "projectFilePath": "C:\\Users\\PC\\Desktop\\תכנות\\folder\\dotnetProject\\MyBakery.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.0\\microsoft.aspnetcore.authentication.jwtbearer.9.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.0\\microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",
