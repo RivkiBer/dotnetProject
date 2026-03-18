@@ -109,7 +109,7 @@ function addItem() {
     const addNameTextbox = document.getElementById('add-name');
 
     const item = {
-        isMilky: false,
+        isMilky: document.getElementById('add-isMilky').checked,
         name: addNameTextbox.value.trim()
     };
 
