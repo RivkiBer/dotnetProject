@@ -31,23 +31,16 @@ function showMessage(action, itemName, username, userType, isOwnAction) {
     }[action] || action;
     
     const actionVerb = {
-        'add': 'הוסיף',
-        'update': 'עדכן',
-        'delete': 'מחק'
+        'add': 'הוסיף/ה',
+        'update': 'עדכן/ה',
+        'delete': 'מחק/ה'
     }[action] || action;
     
     let messageText = '';
-    let userLabel = '';
     
-    // קבע טיימ של משתמש
-    if (userType === 'Admin') {
-        userLabel = ' 👨‍💼 (Admin)';
-    }
     
-    if (isOwnAction) 
-        // המשתמש עצמו כמה עשה
-        messageText = `${actionEmoji} <strong>אתה</strong> ${actionVerb} את "${itemName}"`;
-    
+    // הצג את שם המשתמש, הפעולה, ושם המאפה
+    messageText = `${actionEmoji} <strong>${username}</strong> ${actionVerb}  ${itemName}`;
     
     const msgClass = `message-${action}`;
     const msgHTML = `

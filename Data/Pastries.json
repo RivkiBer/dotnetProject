@@ -48,12 +48,6 @@
     "UserId": 3
   },
   {
-    "Id": 10,
-    "Name": "\u05E2\u05D5\u05D2\u05D4",
-    "isMilky": false,
-    "UserId": 1
-  },
-  {
     "Id": 11,
     "Name": "\u05D1\u05D9\u05D9\u05D2\u05DC",
     "isMilky": false,
@@ -145,8 +139,8 @@
   },
   {
     "Id": 29,
-    "Name": "\u05D9\u05E2\u05DB",
+    "Name": "\u05E4\u05D0\u05D9 \u05EA\u05E4\u05D5\u05D7\u05D9\u05DD",
     "isMilky": false,
-    "UserId": 8
+    "UserId": 7
   }
 ]
