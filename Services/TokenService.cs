@@ -28,8 +28,8 @@ namespace UserNamespace.Services
         public static TokenValidationParameters GetTokenValidationParameters() =>
             new TokenValidationParameters
             {
-                ValidIssuer = issuer,
-                ValidAudience = issuer,
+                ValidateIssuer = false,
+                ValidateAudience = false,
                 IssuerSigningKey = key,
                 ClockSkew = TimeSpan.Zero 
             };

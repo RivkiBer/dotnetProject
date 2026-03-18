@@ -1,121 +1,48 @@
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Cryptography.X509Certificates;
 using UserNamespace.Models;
 using UserService.interfaces;
-using System.IO;
-using System;
-using System.Net;
-using System.Text.Json;
 using Microsoft.AspNetCore.Hosting;
-using System.Linq;
-using BCrypt.Net;
+using BakeryNamespace.Services;
 namespace UserNamespace.Services;
 
-    public  class UserService : IUserService
-    {
-      
-     private List<User> list;
-
-    private string filePath;
-
-    public UserService(IWebHostEnvironment webHost)
-    {
-        this.list = new List<User>();
-
-        this.filePath = Path.Combine(webHost.ContentRootPath, "Data", "Users.json");
-        using (var jsonFile = File.OpenText(filePath))
-        {
-            var content = jsonFile.ReadToEnd();
-            list = JsonSerializer.Deserialize<List<User>>(content,
-            new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            });
-        }
-    }
-
-    private void saveToFile()
-    {
-        var text = JsonSerializer.Serialize(list);
-        File.WriteAllText(filePath, text);
-    }
-   
-   
-
-   public List<User> Get()
+/// <summary>
+/// Service for User CRUD operations
+/// Inherits generic CRUD logic from BaseGenericService
+/// </summary>
+public class UserService : BaseGenericService<User>, IUserService
 {
-        // return copies without the Pass field to avoid exposing hashes
-        return list.Select(u => new User { Id = u.Id, Name = u.Name, Type = u.Type, Pass = null }).ToList();
-    }
-
-    private User find(int id)
+    public UserService(IWebHostEnvironment webHost)
+        : base(webHost, "Users.json")
     {
-        return list.FirstOrDefault(p => p.Id == id);
-
     }
 
-    public User Get(int id)
-    {
-        var u = find(id);
-        if (u == null) return null;
-        return new User { Id = u.Id, Name = u.Name, Type = u.Type, Pass = null };
-    }
+    /// <summary>
+    /// Get user by ID
+    /// </summary>
+    public User Get(int id) => FindById(id);
 
-    // return raw user (including pass hash) for internal auth use
     public User GetRawByName(string name)
     {
-        return list.FirstOrDefault(u => u.Name == name);
+        throw new NotImplementedException();
     }
 
-    public User Create(User newUser)
-    {
-        var maxId = list.Any() ? list.Max(p => p.Id) : 0;
-        newUser.Id = maxId + 1;
-
-        if (!string.IsNullOrWhiteSpace(newUser.Pass))
-        {
-            newUser.Pass = BCrypt.Net.BCrypt.HashPassword(newUser.Pass);
-        }
-
-        list.Add(newUser);
-        saveToFile();
-        return new User { Id = newUser.Id, Name = newUser.Name, Type = newUser.Type, Pass = null };
-    }
-
+    /// <summary>
+    /// Update user with validation
+    /// Returns: 1 = not found, 2 = ID mismatch, 3 = success
+    /// </summary>
     public int Update(int id, User newUser)
     {
-        var Ice = find(id);
-        if (Ice == null)
+        var user = FindById(id);
+        if (user == null)
             return 1;
 
-        if (Ice.Id != newUser.Id)
+        if (user.Id != newUser.Id)
             return 2;
 
-        if (!string.IsNullOrWhiteSpace(newUser.Pass))
-        {
-            newUser.Pass = BCrypt.Net.BCrypt.HashPassword(newUser.Pass);
-        }
-        else
-        {
-            newUser.Pass = Ice.Pass;
-        }
-
-        var index = list.IndexOf(Ice);
+        var index = list.IndexOf(user);
         list[index] = newUser;
-        saveToFile();
+        SaveToFile();
 
         return 3;
-    }
-
-   
-    public bool Delete(int id)
-    {
-         var u= find(id);
-        if(u==null)
-            return false;
-        list.Remove(u);
-        saveToFile();
-        return true;
     }
 }
 public static class UserServiceExtension

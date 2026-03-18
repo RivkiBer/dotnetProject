@@ -27,63 +27,71 @@ public class UserController : ControllerBase
     [HttpGet()]
     public ActionResult<IEnumerable<User>> Get()
     {
+        // רק Admin יכול לראות את רשימת כל המשתמשים
         return services.Get();
     }
 
     [Authorize(Policy="AllUsers")]
-    [HttpGet("{id}")]
-    public ActionResult<User> Get(int id)
+    [HttpGet("me")]
+    public ActionResult<User> GetMe()
     {
-        if(id == activeUser.Id || activeUser.Type == "Admin"){
-            var m = services.Get(id);
-            if(m==null)
-                return NotFound();
-            return m;
-        }
-        return Unauthorized();
+        return activeUser;
     }
 
     [Authorize(Policy="Admin")]
     [HttpPost]
     public ActionResult Create(User newUser)
     {
+        // רק Admin יכול ליצור משתמשים חדשים
         var postedUser = services.Create(newUser);
       
-       return CreatedAtAction(nameof(Create), new { id = postedUser.Id });
+        return CreatedAtAction(nameof(Create), new { id = postedUser.Id });
     }
 
     [Authorize(Policy="AllUsers")]
     [HttpPut("{id}")]
     public ActionResult Update(int id, User newUser)
     {
-        if(!(id == activeUser.Id || activeUser.Type == "Admin"))
-            return Unauthorized();
-        if(activeUser.Type != "Admin" && newUser.Type != activeUser.Type)
-            return Unauthorized();
-            
-        var ans= services.Update( id, newUser);
+        // בדיקה 1: משתמש רגיל יכול לעדכן רק את עצמו
+        if(activeUser.Type == "Regular" && id != activeUser.Id)
+            return Unauthorized("משתמש רגיל יכול לעדכן רק את הפרופיל שלו");
+
+        // בדיקה 2: משתמש רגיל לא יכול לשנות את סוג המשתמש
+        if(activeUser.Type == "Regular" && newUser.Type != activeUser.Type)
+            return Unauthorized("משתמש רגיל לא יכול לשנות את סוג המשתמש שלו");
+
+        // בדיקה 3: Admin יכול לעדכן כל משתמש וכל שדה
+        // (אם הגיע לכאן, Admin יכול לעשות כל דבר)
+
+        // בדיקה 4: בדיקת תקינות - ה-ID בתוך הנתונים חייב להתאים
+        if(services.Get(id) == null)
+            return NotFound("המשתמש לא נמצא");
+
+        if(id != newUser.Id)
+            return BadRequest("ה-ID לא תואם");
+
+        var ans = services.Update(id, newUser);
       
-        if(ans==1)
-          return NotFound();
+        if(ans == 1)
+            return NotFound("המשתמש לא נמצא");
 
-        if(ans==2)
-           return BadRequest();
+        if(ans == 2)
+            return BadRequest("חריגה בעדכון");
 
-       
         return NoContent();
-
     }
 
     [Authorize(Policy="Admin")]
     [HttpDelete("{id}")]
     public ActionResult Delete(int id)
     {
-        var ans= services.Delete(id);
+        // רק Admin יכול למחוק משתמשים
+        var ans = services.Delete(id);
       
-        if(ans==false)
-            return NotFound();
-        return NoContent();
+        if(ans == false)
+            return NotFound("המשתמש לא קיים");
 
+        return NoContent();
     }
 }
  

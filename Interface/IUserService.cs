@@ -19,6 +19,5 @@ namespace UserService.interfaces;
         // Return a user including the stored password hash for authentication
         User GetRawByName(string name);
     }
-}
 
 

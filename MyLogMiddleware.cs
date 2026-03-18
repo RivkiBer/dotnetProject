@@ -1,28 +1,51 @@
 using System.Diagnostics;
+using System.Threading.Channels;
+using BakeryNamespace.Models;
+using Microsoft.AspNetCore.Mvc.Controllers;
 
 namespace MyMiddleware;
 
 public class MyLogMiddleware
 {
     private readonly RequestDelegate next;
-    private readonly ILogger logger;
+    private readonly Channel<LogMessage> _logChannel;
 
-
-    public MyLogMiddleware(RequestDelegate next, ILogger<MyLogMiddleware> logger)
+    public MyLogMiddleware(RequestDelegate next, Channel<LogMessage> logChannel)
     {
         this.next = next;
-        this.logger = logger;
+        _logChannel = logChannel;
     }
 
     public async Task Invoke(HttpContext c)
     {
         var sw = new Stopwatch();
         sw.Start();
-        await next.Invoke(c);
-        logger.LogDebug($"{c.Request.Path}.{c.Request.Method} took {sw.ElapsedMilliseconds}ms."
-            + $" User: {c.User?.FindFirst("userId")?.Value ?? "unknown"} my log midlwere!!!");
+        var startTime = DateTime.Now;
 
-        
+        await next.Invoke(c);
+
+        sw.Stop();
+
+        var controller = "";
+        var action = "";
+        if (c.GetEndpoint()?.Metadata.GetMetadata<ControllerActionDescriptor>() is { } descriptor)
+        {
+            controller = descriptor.ControllerName;
+            action = descriptor.ActionName;
+        }
+
+        var user = c.User?.FindFirst("username")?.Value ?? "unknown";
+
+        var logMessage = new LogMessage
+        {
+            StartTime = startTime,
+            Controller = controller,
+            Action = action,
+            User = user,
+            DurationMs = sw.ElapsedMilliseconds
+        };
+
+        await _logChannel.Writer.WriteAsync(logMessage);
     }
 }
 
