@@ -6,8 +6,8 @@
 ---
 
 ## 👥 Team
-- **Rivka Barnfeld** 👩‍💼
-- **Shevi Spira** 👩‍💼
+- **Rivki Berenfeld** 👩‍💼
+- **Shevi Shapira** 👩‍💼
 
 ---
 
