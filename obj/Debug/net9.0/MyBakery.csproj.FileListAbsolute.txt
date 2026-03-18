@@ -38,9 +38,6 @@ C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\rjsmcshtml
 C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\scopedcss\bundle\MyBakery.styles.css
 C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\compressed\a0gwgy5e35-{0}-bist1z6l8s-bist1z6l8s.gz
 C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\compressed\pnytjor1af-{0}-cm70xz5me2-cm70xz5me2.gz
-C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\compressed\t7g7tgc8om-{0}-t2kha82349-t2kha82349.gz
-C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\compressed\jnpv0zjbrt-{0}-qjcytjpuh6-qjcytjpuh6.gz
-C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\compressed\1rfk5qj3b6-{0}-ryh4vnpcil-ryh4vnpcil.gz
 C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\staticwebassets.development.json
@@ -53,3 +50,6 @@ C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\MyBakery.p
 C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\MyBakery.genruntimeconfig.cache
 C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\ref\MyBakery.dll
 C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\compressed\mr78u9r1h2-{0}-hbftpmdd5l-hbftpmdd5l.gz
+C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\compressed\jnpv0zjbrt-{0}-guw9gohpuk-guw9gohpuk.gz
+C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\compressed\t7g7tgc8om-{0}-e9bdcl87jn-e9bdcl87jn.gz
+C:\Users\PC\Desktop\תכנות\web api\dotnetProject\obj\Debug\net9.0\compressed\1rfk5qj3b6-{0}-rg8rbgjr3c-rg8rbgjr3c.gz

@@ -70,5 +70,11 @@
     "Name": "\u05D1\u05D5\u05E8\u05E7\u05E1",
     "isMilky": true,
     "UserId": 1
+  },
+  {
+    "Id": 13,
+    "Name": "\u05E8\u05D5\u05D2\u05DC\u05D4",
+    "isMilky": false,
+    "UserId": 1
   }
 ]

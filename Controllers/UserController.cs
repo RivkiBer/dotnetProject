@@ -23,19 +23,35 @@ public class UserController : ControllerBase
             ?? throw new System.InvalidOperationException("Active user is required");
     }
 
+    // Helper method - רק ממיר User ל-UserDto ללא Pass field
+    private UserDto UserToDto(User user)
+    {
+        return new UserDto 
+        { 
+            Id = user.Id, 
+            Name = user.Name, 
+            Type = user.Type 
+        };
+    }
+
+    private IEnumerable<UserDto> UsersToDto(IEnumerable<User> users)
+    {
+        return users.Select(u => UserToDto(u)).ToList();
+    }
+
     [Authorize(Policy="Admin")]
     [HttpGet()]
-    public ActionResult<IEnumerable<User>> Get()
+    public ActionResult<IEnumerable<UserDto>> Get()
     {
         // רק Admin יכול לראות את רשימת כל המשתמשים
-        return services.Get();
+        return Ok(UsersToDto(services.Get()));
     }
 
     [Authorize(Policy="AllUsers")]
     [HttpGet("me")]
-    public ActionResult<User> GetMe()
+    public ActionResult<UserDto> GetMe()
     {
-        return activeUser;
+        return Ok(UserToDto(activeUser));
     }
 
     [Authorize(Policy="Admin")]

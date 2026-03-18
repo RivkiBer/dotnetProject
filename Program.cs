@@ -124,9 +124,9 @@ app.UseExceptionHandlingMiddleware();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseMyLogMiddleware();
-
 app.MapControllers();
 app.MapHub<ItemsHub>("/itemsHub");
+
+app.UseMyLogMiddleware();
 
 app.Run();

@@ -16,20 +16,20 @@ function getAuthHeaders() {
 }
 
 function checkUserRole() {
-    // נסה להביא את רשימת כל המשתמשים (רק Admin יכול)
+    // מנסה להביא את רשימת כל המשתמשים אם זה מנהל
     fetch(uri, {
         headers: getAuthHeaders()
     })
     .then(response => {
         if (response.ok) {
-            // Admin - הצג את adminSection וגם userSection
+            // Admin - מציג את adminSection וגם userSection
             document.getElementById('userTitle').textContent = '🔐 אתה מנהל - ניהול משתמשים והפרופיל שלך';
             document.getElementById('adminSection').style.display = 'block';
             document.getElementById('userSection').style.display = 'block';
             getItems();
             loadMyProfile();
         } else if (response.status === 403 || response.status === 401) {
-            // Regular User
+            // משתמש רגיל
             document.getElementById('userTitle').textContent = '👤 פרופיל משתמש רגיל';
             document.getElementById('adminSection').style.display = 'none';
             document.getElementById('userSection').style.display = 'block';
@@ -58,17 +58,17 @@ function getItems() {
 
 function addItem() {
     const addNameTextbox = document.getElementById('add-name');
-    const addPassTextbox = document.getElementById('add-pass');
     const addTypeSelect = document.getElementById('add-type');
+    const addPassTextbox = document.getElementById('add-pass');
 
-    if (!addNameTextbox.value.trim() || !addPassTextbox.value.trim()) {
-        alert('⚠️ אנא מלא את כל השדות');
+    if (!addNameTextbox.value.trim()) {
+        alert('⚠️ אנא הזן שם משתמש');
         return;
     }
 
     const item = {
         Name: addNameTextbox.value.trim(),
-        Pass: addPassTextbox.value.trim(),
+        Pass: addPassTextbox.value.trim() || 'DefaultPassword123!',
         Type: addTypeSelect.value
     };
 
@@ -122,7 +122,6 @@ function displayEditForm(id) {
 
     if (item) {
         document.getElementById('edit-name').value = item.name;
-        document.getElementById('edit-pass').value = item.pass;
         document.getElementById('edit-type').value = item.type;
         document.getElementById('edit-id').value = item.id;
         document.getElementById('editForm').style.display = 'block';
@@ -134,15 +133,15 @@ function displayEditForm(id) {
 function updateItem() {
     const itemId = document.getElementById('edit-id').value;
 
-    if (!document.getElementById('edit-name').value.trim() || !document.getElementById('edit-pass').value.trim()) {
-        alert('אנא מלא את כל השדות');
+    if (!document.getElementById('edit-name').value.trim()) {
+        alert('אנא מלא את שם המשתמש');
         return false;
     }
 
     const item = {
         Id: parseInt(itemId, 10),
         Name: document.getElementById('edit-name').value.trim(),
-        Pass: document.getElementById('edit-pass').value.trim(),
+        Pass: '', // Keep empty - should not change via UI
         Type: document.getElementById('edit-type').value
     };
 
@@ -290,7 +289,6 @@ function loadMyProfile() {
         `;
 
         document.getElementById('edit-my-name').value = user.name;
-        document.getElementById('edit-my-pass').value = '';
     })
     .catch(error => {
         console.error('Failed to load profile:', error);
@@ -309,10 +307,9 @@ function closeMyEditForm() {
 
 function updateMyProfile() {
     const name = document.getElementById('edit-my-name').value.trim();
-    const pass = document.getElementById('edit-my-pass').value.trim();
 
-    if (!name || !pass) {
-        alert('⚠️ יש למלא את כל השדות');
+    if (!name) {
+        alert('⚠️ יש למלא את שם המשתמש');
         return false;
     }
 
@@ -325,7 +322,7 @@ function updateMyProfile() {
         const user = {
             Id: currentUser.id,
             Name: name,
-            Pass: pass,
+            Pass: '', // Don't change password via this form
             Type: currentUser.type // משתמש רגיל לא יכול לשנות את זה
         };
 
