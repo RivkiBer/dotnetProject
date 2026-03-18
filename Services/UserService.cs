@@ -1,94 +1,44 @@
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Cryptography.X509Certificates;
 using UserNamespace.Models;
 using UserService.interfaces;
-using System.IO;
-using System;
-using System.Net;
-using System.Text.Json;
 using Microsoft.AspNetCore.Hosting;
+using BakeryNamespace.Services;
 
 namespace UserNamespace.Services;
 
-    public  class UserService : IUserService
-    {
-      
-     private List<User> list;
-
-    private string filePath;
-
+/// <summary>
+/// Service for User CRUD operations
+/// Inherits generic CRUD logic from BaseGenericService
+/// </summary>
+public class UserService : BaseGenericService<User>, IUserService
+{
     public UserService(IWebHostEnvironment webHost)
+        : base(webHost, "Users.json")
     {
-        this.list = new List<User>();
-
-        this.filePath = Path.Combine(webHost.ContentRootPath, "Data", "Users.json");
-        using (var jsonFile = File.OpenText(filePath))
-        {
-            var content = jsonFile.ReadToEnd();
-            list = JsonSerializer.Deserialize<List<User>>(content,
-            new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            });
-        }
     }
 
-    private void saveToFile()
-    {
-        var text = JsonSerializer.Serialize(list);
-        File.WriteAllText(filePath, text);
-    }
-   
-   
+    /// <summary>
+    /// Get user by ID
+    /// </summary>
+    public User Get(int id) => FindById(id);
 
-    public List<User> Get()
-    {
-        return list;
-    }
-
-    private User find(int id)
-    {
-        
-        return list.FirstOrDefault(p => p.Id == id);
-
-    }
-
-    public User Get(int id) => find(id);
-
-    public User Create(User newUser)
-    {
-        var maxId = list.Max(p => p.Id);
-        newUser.Id = maxId + 1;
-        list.Add(newUser);
-        saveToFile();
-            return newUser;
-    }
-
+    /// <summary>
+    /// Update user with validation
+    /// Returns: 1 = not found, 2 = ID mismatch, 3 = success
+    /// </summary>
     public int Update(int id, User newUser)
     {
-        var Ice = find(id);
-        if(Ice == null)
-          return 1;
+        var user = FindById(id);
+        if (user == null)
+            return 1;
 
-        if(Ice.Id != newUser.Id)
-           return 2;
+        if (user.Id != newUser.Id)
+            return 2;
 
-        var index = list.IndexOf(Ice);
+        var index = list.IndexOf(user);
         list[index] = newUser;
-        saveToFile();
+        SaveToFile();
 
         return 3;
-    }
-
-   
-    public bool Delete(int id)
-    {
-         var u= find(id);
-        if(u==null)
-            return false;
-        list.Remove(u);
-        saveToFile();
-        return true;
     }
 }
 public static class UserServiceExtension

@@ -20,7 +20,6 @@ if (!token) {
     getItems();
 }
 
-// ==================== הודעות בזמן אמת ====================
 function showMessage(action, itemName, username, userType, isOwnAction) {
     const container = document.getElementById('messagesContainer');
     container.style.display = 'block';
@@ -45,13 +44,10 @@ function showMessage(action, itemName, username, userType, isOwnAction) {
         userLabel = ' 👨‍💼 (Admin)';
     }
     
-    if (isOwnAction) {
+    if (isOwnAction) 
         // המשתמש עצמו כמה עשה
         messageText = `${actionEmoji} <strong>אתה</strong> ${actionVerb} את "${itemName}"`;
-    } else {
-        // משתמש אחר עשה משהו
-        messageText = `${actionEmoji} <strong>${username || 'משתמש'}</strong>${userLabel} ${actionVerb} את "${itemName}"`;
-    }
+    
     
     const msgClass = `message-${action}`;
     const msgHTML = `
@@ -63,7 +59,7 @@ function showMessage(action, itemName, username, userType, isOwnAction) {
     
     container.innerHTML += msgHTML;
     
-    // הדמט ההודעה אחרי 5 שניות
+    //  ההודעה אחרי 5 שניות
     setTimeout(() => {
         const messages = container.querySelectorAll('.message-item');
         if (messages.length > 0) {
@@ -73,7 +69,7 @@ function showMessage(action, itemName, username, userType, isOwnAction) {
     }, 5000);
 }
 
-// ==================== SignalR ו-ריאל-טיים ====================
+// SignalR 
 function initializeSignalR() {
     connection = new signalR.HubConnectionBuilder()
         .withUrl('/itemsHub', { accessTokenFactory: () => token })
@@ -89,7 +85,7 @@ function initializeSignalR() {
         // הצג ההודעה עם טיים משתמש
         showMessage(message.Action, message.ItemName, message.Username, message.UserType, isOwnAction);
         
-        // רענן את הטבלה
+        // עדכן את הרשת אוטומטית
         getItems();
     });
 
@@ -217,7 +213,7 @@ function updateItem() {
                 throw new Error('שגיאה בעדכון המאפה');
             }
             // Show message immediately
-            showMessage('update', item.name, currentUserData.username, true);
+            showMessage('update', item.name, currentUserData.username, currentUserData.type, true);
             
             return getItems();
         })

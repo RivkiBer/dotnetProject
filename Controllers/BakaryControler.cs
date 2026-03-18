@@ -10,24 +10,26 @@ using UserService.interfaces;
 using UserNamespace.Models;
 using Microsoft.AspNetCore.SignalR;
 using BakeryApp.Hubs;
+using BakeryNamespace.Services;
 
 namespace BakeryNamespace.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-[Authorize]
+[Authorize(Policy = "AllUsers")] // Only authenticated users (Admin or Regular)
 public class BakeryController : ControllerBase
 {  
    IBakeryService services;
    User activeUser;
-   IHubContext<ItemsHub> hubContext;
+   INotificationService notificationService;
 
-    public BakeryController(IBakeryService Pastservices, IActiveUser activeUser, IHubContext<ItemsHub> hubContext)
+    public BakeryController(IBakeryService Pastservices, IActiveUser activeUser, INotificationService notificationService)
     {
-        this.services=Pastservices;
+        this.services = Pastservices;
         this.activeUser = activeUser.ActiveUser
             ?? throw new System.InvalidOperationException("Active user is required");
-        this.hubContext = hubContext;
+        this.notificationService = notificationService 
+            ?? throw new System.InvalidOperationException("Notification service is required");
     }
 
     [HttpGet()]
@@ -53,17 +55,14 @@ public class BakeryController : ControllerBase
         newPastry.UserId = activeUser.Id;
         var postedPastry = services.Create(newPastry);
         
-        // שידור התעדכנות לכל חיבורי המשתמש
-        await hubContext.Clients.User(activeUser.Id.ToString())
-            .SendAsync("ReceiveItemUpdate", new
-            {
-                Username = activeUser.Name,
-                UserId = activeUser.Id,
-                UserType = activeUser.Type,
-                Action = "add",
-                ItemName = postedPastry.Name,
-                Timestamp = DateTime.UtcNow
-            });
+        // Send notification via centralized service
+        await notificationService.NotifyItemUpdate(
+            activeUser.Id,
+            activeUser.Name,
+            activeUser.Type,
+            "add",
+            postedPastry.Name
+        );
       
         return CreatedAtAction(nameof(Create), new { id = postedPastry.Id });
     }
@@ -84,17 +83,14 @@ public class BakeryController : ControllerBase
         if(ans==1)
             return BadRequest();
 
-        // שידור התעדכנות לכל חיבורי המשתמש
-        await hubContext.Clients.User(activeUser.Id.ToString())
-            .SendAsync("ReceiveItemUpdate", new
-            {
-                Username = activeUser.Name,
-                UserId = activeUser.Id,
-                UserType = activeUser.Type,
-                Action = "update",
-                ItemName = newPastry.Name,
-                Timestamp = DateTime.UtcNow
-            });
+        // Send notification via centralized service
+        await notificationService.NotifyItemUpdate(
+            activeUser.Id,
+            activeUser.Name,
+            activeUser.Type,
+            "update",
+            newPastry.Name
+        );
 
         return NoContent();
     }
@@ -111,17 +107,14 @@ public class BakeryController : ControllerBase
         if(ans==false)
             return NotFound();
 
-        // שידור התעדכנות לכל חיבורי המשתמש
-        await hubContext.Clients.User(activeUser.Id.ToString())
-            .SendAsync("ReceiveItemUpdate", new
-            {
-                Username = activeUser.Name,
-                UserId = activeUser.Id,
-                UserType = activeUser.Type,
-                Action = "delete",
-                ItemName = existing.Name,
-                Timestamp = DateTime.UtcNow
-            });
+        // Send notification via centralized service
+        await notificationService.NotifyItemUpdate(
+            activeUser.Id,
+            activeUser.Name,
+            activeUser.Type,
+            "delete",
+            existing.Name
+        );
 
         return NoContent();
     }

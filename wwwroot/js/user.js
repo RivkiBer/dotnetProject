@@ -22,11 +22,12 @@ function checkUserRole() {
     })
     .then(response => {
         if (response.ok) {
-            // Admin - הצג את adminSection
-            document.getElementById('userTitle').textContent = '🔐 אתה מנהל - גישה מלאה לכל המשתמשים';
+            // Admin - הצג את adminSection וגם userSection
+            document.getElementById('userTitle').textContent = '🔐 אתה מנהל - ניהול משתמשים והפרופיל שלך';
             document.getElementById('adminSection').style.display = 'block';
-            document.getElementById('userSection').style.display = 'none';
+            document.getElementById('userSection').style.display = 'block';
             getItems();
+            loadMyProfile();
         } else if (response.status === 403 || response.status === 401) {
             // Regular User
             document.getElementById('userTitle').textContent = '👤 פרופיל משתמש רגיל';

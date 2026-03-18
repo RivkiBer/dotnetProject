@@ -32,19 +32,10 @@ public class UserController : ControllerBase
     }
 
     [Authorize(Policy="AllUsers")]
-    [HttpGet("{id}")]
-    public ActionResult<User> Get(int id)
+    [HttpGet("me")]
+    public ActionResult<User> GetMe()
     {
-        // בדיקה 1: משתמש רגיל יכול רק לראות את עצמו
-        if(activeUser.Type == "Regular" && id != activeUser.Id)
-            return Unauthorized("משתמש רגיל יכול רק לראות את הפרופיל שלו");
-
-        // בדיקה 2: Admin יכול לראות כל משתמש
-        var user = services.Get(id);
-        if(user == null)
-            return NotFound("המשתמש לא קיים");
-
-        return user;
+        return activeUser;
     }
 
     [Authorize(Policy="Admin")]

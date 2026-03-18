@@ -1,68 +1,34 @@
-using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc;
 using BakeryNamespace.Models;
 using BakeryServices.Interface;
-using System.IO;
-using System;
-using System.Net;
-using System.Text.Json;
 using Microsoft.AspNetCore.Hosting;
+using BakeryNamespace.Services;
 
 namespace NamespaceBakery.Services;
 
-public class BakeryService : IBakeryService
+/// <summary>
+/// Service for Pastry CRUD operations
+/// Inherits generic CRUD logic from BaseGenericService
+/// </summary>
+public class BakeryService : BaseGenericService<Pastry>, IBakeryService
 {
-
-    private List<Pastry> list;
-
-    private string filePath;
-
     public BakeryService(IWebHostEnvironment webHost)
+        : base(webHost, "Pastries.json")
     {
-        this.list = new List<Pastry>();
-
-        this.filePath = Path.Combine(webHost.ContentRootPath, "Data", "Pastries.json");
-        using (var jsonFile = File.OpenText(filePath))
-        {
-            var content = jsonFile.ReadToEnd();
-            list = JsonSerializer.Deserialize<List<Pastry>>(content,
-            new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            });
-        }
     }
 
-    private void saveToFile()
-    {
-        var text = JsonSerializer.Serialize(list);
-        File.WriteAllText(filePath, text);
-    }
-    private Pastry find(int id)
-    {
-        return list.FirstOrDefault(p => p.Id == id);
-    }
+    /// <summary>
+    /// Get pastry by ID
+    /// </summary>
+    public Pastry Get(int id) => FindById(id);
 
-    public List<Pastry> Get()
-    {
-        return list;
-    }
-
-    public Pastry Get(int id) => find(id);
-
-    public Pastry Create(Pastry newPastry)
-    {
-        var maxId = list.Max(m => m.Id);
-        newPastry.Id = maxId + 1;
-        list.Add(newPastry);
-        saveToFile();
-        return newPastry;
-    }
-
+    /// <summary>
+    /// Update pastry with validation
+    /// Returns: 0 = not found, 1 = ID mismatch, 2 = success
+    /// </summary>
     public int Update(int id, Pastry newPastry)
     {
-        var pas = find(id);
+        var pas = FindById(id);
         if (pas == null)
             return 0;
         if (pas.Id != newPastry.Id)
@@ -70,19 +36,9 @@ public class BakeryService : IBakeryService
 
         var index = list.IndexOf(pas);
         list[index] = newPastry;
-        saveToFile();
+        SaveToFile();
 
         return 2;
-    }
-
-    public bool Delete(int id)
-    {
-        var pas = find(id);
-        if (pas == null)
-            return false;
-        list.Remove(pas);
-        saveToFile();
-        return true;
     }
 }
 public static class BakeryExtension
